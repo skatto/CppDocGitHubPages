@@ -174,7 +174,7 @@ int main()
 int main()
 {
 	int a = 1;  // 変数aを宣言. 型は整数型で,中身は1で
-	float b = 2.4;  // 変数bを宣言! 型は少数型で中身は2.4で
+	float b = 2.4;  // 変数bを宣言! 型は小数型で中身は2.4で
 	std::cout << a << std::endl;  // 1ですね
 	std::cout << b << std::endl;  // 2.4ですね
 	a = 2;  // aの中身を再設定!
@@ -188,7 +188,7 @@ int main()
 2
 ```
 ここでは`a`と`b`が変数でその前の`int`, `float`が型です.  
-`int`は Integer : 整数, `float`は floating point : 浮動小数点(少数) を表しており
+`int`は Integer : 整数, `float`は floating point : 浮動小数点(小数) を表しており
 入れて置けるものの種類を表します.  
 変数において, つけた名前と内容は全く関係ありません.  
 上のコードで`a`を`aplha`と置き換えても出来上がるプログラムは同じです.
@@ -796,7 +796,7 @@ int main()
 ```c++:13_1.cpp
 #include <iostream>
 
-// 戻り値はfloat型, つまり少数.
+// 戻り値はfloat型, つまり小数.
 float max(float a, float b) {  // 引数は何個でもよい
 	if (a > b) {
 		return a;  
@@ -826,7 +826,7 @@ int main()
 ```c++:13_2.cpp
 #include <iostream>
 
-// 戻り値はfloat型, つまり少数!
+// 戻り値はfloat型, つまり小数!
 float f(float x) {
 	return x * x + 2 * x + 3;
 }
