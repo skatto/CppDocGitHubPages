@@ -1,6 +1,5 @@
 theme: jekyll-theme-cayman
 markdown: kramdown
-highlighter: rouge
 pygments: true
 title: C++への導入
 description: Web Document for C++ syoshinsya in Denkoken.
