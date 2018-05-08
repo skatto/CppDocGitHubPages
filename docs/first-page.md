@@ -1,7 +1,8 @@
 ---
 layout: default
 title: 第一部
-brothers: test
+brothers:
+ - test
 ---
 
 ## はじめに
