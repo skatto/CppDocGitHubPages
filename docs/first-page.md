@@ -1,8 +1,7 @@
 ---
 layout: default
 title: 第一部
-brothers:
- - second-page
+next: second-page
 ---
 
 ## はじめに

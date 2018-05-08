@@ -1,8 +1,7 @@
 ---
 layout: default
 title: 第三部・おまけ
-brothers:
- - second-page
+prev: second-page
 ---
 
 # 最新のC++機能
