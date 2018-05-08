@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 第二部・より効率よく, よいプログラムを書こう.
-brohters:
+brothers:
  - first-page
  - third-page
 ---

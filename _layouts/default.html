@@ -16,18 +16,20 @@
     <section class="main-content">
       <h1>{{ page.title }}</h1>
       {% for bros in page.brothers %}
-        <a href="{{ site.baseurl }}/docs/{{ bros }}.html">
-          {{ bros }}
-        </a><br>
+      <button
+       onclick="location.href='{{ site.baseurl }}/docs/{{ bros }}.html'">
+        {{ bros }}
+      </button>
       {% endfor %}
       <h2>目次</h2>
       {% include toc.html html=content h_max=2 %}
       {{ content }}
 
       {% for bros in page.brothers %}
-        <a href="{{ site.baseurl }}/docs/{{ bros }}.html">
-          {{ bros }}
-        </a><br>
+      <button
+       onclick="location.href='{{ site.baseurl }}/docs/{{ bros }}.html'">
+        {{ bros }}
+      </button>
       {% endfor %}
 
       <footer class="site-footer">
