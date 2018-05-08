@@ -10,6 +10,8 @@ layout: home
 * これらは上のレイヤのソフトフェア系の人に向けて書いたものです. より下のレイヤに近い人はこの限りでないと思います. 頑張ってください.
 
 
-[第一部](/docs/first-page.md)  
+[第一部](/docs/first-page.md)  
 
-[第二部](/docs/second-page.md)
+[第二部](/docs/second-page.md)  
+
+[第三部](/docs/third-page.md)
