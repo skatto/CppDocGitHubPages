@@ -3,6 +3,7 @@ layout: default
 title: 第一部
 brothers:
  - test
+ - second-page.md
 ---
 
 ## はじめに
