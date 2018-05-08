@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 ---
 
 # c++への導入
