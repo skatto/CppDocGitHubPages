@@ -1,6 +1,6 @@
 ---
 layout: default
-titile: 第二部
+title: 第二部
 ---
 
 # 2部. より効率よく, よいプログラムを書こう.

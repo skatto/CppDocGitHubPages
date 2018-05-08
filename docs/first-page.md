@@ -1,6 +1,6 @@
 ---
 layout: default
-titile: 第一部
+title: 第一部
 ---
 
 # はじめに
