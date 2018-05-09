@@ -19,3 +19,4 @@ kramdown:
       line_numbers: true
       start_line: 1
     gutter_class: 'mycodetable'
+    code_class: 'mycodetable'
