@@ -18,5 +18,4 @@ kramdown:
     block:
       line_numbers: true
       start_line: 1
-    code_class: 'hljs'
-    table_class: 'hljs'
+    gutter_class: 'mycodetable'
