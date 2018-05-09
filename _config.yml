@@ -7,10 +7,6 @@ markdown: kramdown
 highlighter: rouge
 
 kramdown:
-  use_coderay: true
-
+  input: GFM
   coderay:
-    coderay_line_numbers: inline
-    coderay_line_numbers_start: 1
-    coderay_tab_width: 4
-    coderay_css: style
+    line_numbers: table
