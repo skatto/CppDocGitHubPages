@@ -4,8 +4,8 @@ description: Web Document for C++ syoshinsya in Denkoken.
 theme: jekyll-theme-cayman
 
 markdown: kramdown
-highlighter: rogue
+highlighter: rouge
 
 kramdown:
   input: GFM
-  syntax_highlighter: rogue
+  syntax_highlighter: rouge
