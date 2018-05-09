@@ -45,7 +45,9 @@ C言語以外を書く際にも心がけましょう.
 
 ## 1. 最初のプログラム
 
-```c++:1_1.cpp
+* 1_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -64,7 +66,9 @@ int main()
 
 注: c++のコードではほとんどの場合スペースと改行は等価です. つまり以下のコードでも同じプログラムが出来上がります.
 
-```c++:1_2.cpp
+* 1_2.cpp
+
+```c++
 #include <iostream>
 
 int main(){std::cout << "Hello World !" << std::endl;
@@ -73,7 +77,9 @@ int main(){std::cout << "Hello World !" << std::endl;
 が, 一目瞭然で読みづらいので`1_1.cpp`のようなコードを書きましょう.
 
 ## 2. コンソールへの出力
-```c++:2_1.cpp
+* 2_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -84,7 +90,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 test1test2
 日本語もOK !
 ```
@@ -93,7 +102,9 @@ test1test2
 **これらを使う際には1行目の`#include <iostream>`を忘れないこと.**
 
 ## 3.コメント
-```c++:3_1.cpp
+* 3_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -102,7 +113,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 太陽は東から昇る
 ```
 コメントは出来上がるプログラムに影響を及ぼしません.  
@@ -163,7 +177,9 @@ int main()
 
 ### 例文
 
-```c++:4_1.cpp
+* 4_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -177,7 +193,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 1
 2.4
 2
@@ -194,7 +213,9 @@ int main()
 ## 5.数字に対する演算子
 [参考URL : C言語の演算子について](http://www.c-lang.org/operator.html)
 
-```c++:5_1.cpp
+* 5_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -210,7 +231,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 6
 8
 2
@@ -256,7 +280,9 @@ CPUメモリ上に具体的に存在し, その場所を示す住所も存在し
 ### 例文
 
 
-```c++:6_1.cpp
+* 6_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -273,7 +299,7 @@ int main()
 
     std::cout << *pointer_of_a << std::endl;
     // "*ポインタ"で中身にアクセス !
-    
+
     std::cout << *(&a) << std::endl;
     // aのポインタが指し示すは当然aの中身
 
@@ -282,7 +308,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 1
 0x7fff547bfa48 (ここは実行するごとに変わります)
 0x7fff547bfa48 (ここに住所を割り振るのはOSの仕事なので)
@@ -318,7 +347,9 @@ int main()
 ### 例文
 
 
-```c++:7_1.cpp
+* 7_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -339,7 +370,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 1
 1
 2
@@ -391,7 +425,9 @@ else {
 ### 例文
 
 
-```c++:8_1.cpp
+* 8_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -413,7 +449,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 bよりaは小さいです.
 ```
 
@@ -449,7 +488,9 @@ bよりaは小さいです.
 ### 実例
 
 
-```c++:12_1.cpp
+* 12_1.cpp
+
+```c++
 #include <iostream>
 
 int main {  // main関数によるスコープが発生.
@@ -457,10 +498,10 @@ int main {  // main関数によるスコープが発生.
     if (4 > 3) {  // if文によるスコープが発生. 
         int b = 1;  // 変数bを定義. しかし..if文によるスコープの間しか存在しない.
     } // ここで変数bは無くなってしまう. この後使おうとするとエラー.
-    
+
     float b = 3.14;
     // 再定義することは可能. でも生まれ変わりってわけじゃない. 全くの別人.
-    
+
     { // 自分で何もないところにスコープを作ることも可能.
         int c = 2; // 変数cを定義
         { // 何重にもスコープを作ることも可能. でもあんまり重なると見辛い.
@@ -474,12 +515,15 @@ int main {  // main関数によるスコープが発生.
         std::cout << "c : " << c << std::endl; 
         // まだcは生きてるよ!
     } // 変数cも消えてしまった..
-    
+
     return EXIT_SUCCESS; 
     // 変数a, bが消えてしまった.. まあプログラムが終わるから当たり前だけど.
 }
 ```
-```:出力
+
+* 出力
+
+```
 a : 0
 b : 3.14
 c : 2
@@ -499,7 +543,9 @@ while( 条件文 ) {
 }
 ```
 
-```c++:9_1.cpp
+* 9_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -515,7 +561,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 0
 1
 2
@@ -532,7 +581,9 @@ while文は`()`内の`bool`型変数の値が`true`である時, `{}`の中身�
 以下のように`break`を使えば`while`によるループから強制的に抜け出すことができます.  
 ただし抜け出すループは一つだけです.
 
-```c++:9_2.cpp
+* 9_2.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -550,7 +601,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 0
 1
 2
@@ -580,7 +634,9 @@ while(true) {  // trueで固定しているのでbreakを使わない限り, ぬ
 
 `continue`を使えばループの次の週へとジャンプすることができます.
 
-```c++:9_3.cpp
+* 9_3.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -598,7 +654,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 0
 1
 3 (2が飛ばされてる!)
@@ -614,14 +673,18 @@ for文もループを扱う文ですがwhile文より少し複雑で自由度が
 
 * 基本文型
 
-```c++:
+* 
+
+```c++
 for (文1; 条件文; 文2) {
     ...  // 条件文に当てはまる限り何度でも実行されます.
 }
 ```
 こう書いたfor文は以下のwhile文とほぼ同義です.
 
-```c++:
+* 
+
+```c++
 {
     文1;
     while (条件文) {
@@ -633,7 +696,9 @@ for (文1; 条件文; 文2) {
 全体が`{}`で囲われているのはスコープに関係し, 文1で生成した変数がどこまで有効かということに関わってきます.  
 文1で作った変数はループが終わり次第消えてしまうということだけ覚えておきましょう.
 
-```c++:11_1.cpp
+* 11_1.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -645,7 +710,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 今1回目のループです.
 今2回目のループです.
 今3回目のループです.
@@ -678,6 +746,7 @@ void 関数名 (型名1 引数名1, 型名2 引数名2, ... , 型名n 引数名n
     ... //実行する内容.
 }
 ```
+
 * 関数の呼び出し
 
 ```c++
@@ -688,7 +757,9 @@ void 関数名 (型名1 引数名1, 型名2 引数名2, ... , 型名n 引数名n
 
 基本文型を見てもピンとこないと思うので実例を見てみましょう.  
 
-```c++:12_1.cpp
+* 12_1.cpp
+
+```c++
 #include <iostream>
 
 // 円の半径を入力して, 面積を出力させる関数.
@@ -709,7 +780,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 半径 1の円の面積は3.14159です.
 半径 2の円の面積は12.5664です.
 半径 3の円の面積は28.2743です.
@@ -730,7 +804,9 @@ int main()
 
 つまり以下のコードと同じ動きをします.
 
-```c++:12_2.cpp
+* 12_2.cpp
+
+```c++
 #include <iostream>
 
 int main()
@@ -780,6 +856,7 @@ int main()
     return 戻り値;
 }
 ```
+
 * 関数の呼び出し
 
 ```c++
@@ -788,7 +865,9 @@ int main()
 
 ### 例文
 
-```c++:13_1.cpp
+* 13_1.cpp
+
+```c++
 #include <iostream>
 
 // 戻り値はfloat型, つまり小数.
@@ -807,18 +886,23 @@ float max(float a, float b) {  // 引数は何個でもよい
 int main()
 {
     std::cout << max(3.141592, 2.718) << std::endl;
-    
+
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 3.141592
 ```
 関数の戻り値は, 18行目の様に変数の様に扱えます.  
 数学の関数の様に $f(x) + g(y) = ?$ みたいな感覚で使えばいいです.  
 以下の様な例を見るとわかりやすかもしれません.
 
-```c++:13_2.cpp
+* 13_2.cpp
+
+```c++
 #include <iostream>
 
 // 戻り値はfloat型, つまり小数!
@@ -832,7 +916,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 56
 ```
 
@@ -858,11 +945,13 @@ struct 構造体名 {
     型名n メンバ変数名n;
 };
 ```
+
 * 構造体を型とした変数の宣言
 
 ```c++
 構造体名 変数名;
 ```
+
 * 構造体を型とした変数のメンバ変数へのアクセス.
 
 ```c++
@@ -872,7 +961,9 @@ struct 構造体名 {
 ### 例文
 
 
-```c++:14_1.cpp
+* 14_1.cpp
+
+```c++
 #include <iostream>
 
 struct Human {
@@ -884,7 +975,7 @@ int main()
 {
     Human A;  // 変数Aの宣言
     Human B;  // 変数Bの宣言
-    
+
     A.age = 18;  // 構造体変数Aのageというメンバ変数を18で設定.
     A.weight = 70.3;  // 構造体変数Aのweightというメンバ変数を70.3で設定.
 
@@ -896,11 +987,14 @@ int main()
     std::cout << "Bの年齢 : " << B.age << std::endl;
     std::cout << "Bの体重 : " << B.weight << std::endl;
     // Aのメンバ変数とBのメンバ変数の値がしっかりと違います.
-    
+
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 Aの年齢 : 18
 Aの体重 : 70.3
 Bの年齢 : 21
@@ -962,6 +1056,7 @@ private:
 ```c++
 クラス名 変数名(コンストラクタの引数1, ... コンストラクタの引数n);
 ```
+
 * コンストラクタが引数を取らない場合
 
 ```c++
@@ -981,7 +1076,9 @@ private:
 
 ### 例文
 
-```c++:15_1.cpp
+* 15_1.cpp
+
+```c++
 #include <iostream>
 
 class Human {
@@ -1011,7 +1108,7 @@ public:
             std::cout << "私は" << 100000 + age << "歳です." << std::endl;
         }
     }
-    
+
     void sayWeight() {
         if (personality == 0) { // 正直なら
             std::cout << "私は" << weight << "kgです." << std::endl;
@@ -1020,7 +1117,7 @@ public:
             std::cout << "私は" << 50000 << "tです." << std::endl;
         }
     }
-    
+
     void sayPersonality() {
         std::cout << "私は正直者です." << std::endl;
     }
@@ -1030,12 +1127,12 @@ int main()
 {
     Human A(18, 60.3, 174.5, 0);
     Human B(55, 58, 168, 1);
-    
+
     // 年齢, 体重, 性格は秘匿されているのでクラスの内側からしか見れない.
     A.sayAge();
     A.sayWeight();
     A.sayPersonality();
-    
+
     // heightは公開メンバ変数なので, アクセスできる.
     std::cout << "Aの身長は" << A.height << "cmです". << std::endl;
 
@@ -1050,7 +1147,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 私は18歳です.
 私は60.3kgです.
 私は正直者です.
@@ -1064,7 +1164,9 @@ Bの身長は168cmです.
 このように秘匿されたメンバ変数に外部からアクセスすることはできません.  
 この例では秘匿されたメンバ変数がなぜ必要かわかりづらいので, 次の例を見ましょう.
 
-```c++:15_2.cpp
+* 15_2.cpp
+
+```c++
 #include <iostream>
 
 class Counter {
@@ -1077,7 +1179,7 @@ public:
     void update() {
         count += 1;
     }
-    
+
     int getCount() {
         return count;
     }
@@ -1086,7 +1188,7 @@ public:
 int main()
 {
     Counter counter;
-    
+
     float a = 1.0;
     while (a > 0.005) {
         a *= 0.3;
@@ -1097,7 +1199,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 5
 ```
 このように外からいじって欲しくない時にメンバ変数を秘匿するのです.  
@@ -1136,6 +1241,7 @@ c++には配列と呼ばれるものが3つあります.
 ```c++
 型名 変数名[配列の長さ];
 ```
+
 * 長さnの配列を値を設定しつつ宣言する.
 
 ```c++
@@ -1152,27 +1258,32 @@ c++には配列と呼ばれるものが3つあります.
 
 ### 例文
 
-```c++:16_1.cpp
+* 16_1.cpp
+
+```c++
 #include<iostream>
 
 int main()
 {
     int a[10]; //配列aを宣言.
-    
+
     // フィボナッチ数列を作ってみる.
     a[0] = 1;
     a[1] = 1;
     for (int i = 2; i < 10; i++) {
         a[i] = a[i - 1] + a[i - 2];
     }
-    
+
     for (int i = 0; i < 10; i++) {
         std::cout << "a[" << i << "] は " << a[i] << "です." << std::endl;
     }
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 a[0] は 1です.
 a[1] は 1です.
 a[2] は 2です.
@@ -1208,12 +1319,17 @@ c++ にはマクロと呼ばれる仕組みがあり, コンパイル時に解�
 ### 例文
 
 
-```:example.txt
+* example.txt
+
+```
 void test() {
     std::cout << "ちゃんと読み込まれています" << std::endl;
 }
 ```
-```c++:17_1.cpp
+
+* 17_1.cpp
+
+```c++
 #include <iostream>
 
 #include "example.txt"
@@ -1225,7 +1341,10 @@ int main()
     return EXIT_SUCCESS;
 }
 ```
-```:出力
+
+* 出力
+
+```
 ちゃんと読み込まれています
 ```
 

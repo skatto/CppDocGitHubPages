@@ -325,7 +325,9 @@ std::vector<型名> 変数名{変数1, 変数2, ... 変数n};　// 上と同じ�
 
 ### 例文
 
-```c++:16_1.cpp
+* 16_1.cpp
+
+```c++
 #include <iostream>
 #include <array>
 #include <vector>
