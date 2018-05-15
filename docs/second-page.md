@@ -379,7 +379,7 @@ Abort trap: 6
 ```c++
 #include <iostream>
 
-// 一般的にfloatの掛け算はオーバーフローもしない.
+// 掛け算で未定義な計算は起こらない.
 float nibai(float a) noexcept {
     return a * 2.f;
 }
