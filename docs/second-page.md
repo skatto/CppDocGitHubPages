@@ -3,6 +3,7 @@ layout: default
 title: 第二部・より効率よく, よいプログラムを書こう.
 prev: first-page
 next: third-page
+date: 2018-05-15
 ---
 
 ## constによる定数
@@ -245,6 +246,231 @@ c++のコード中の値は右辺値と左辺値
 ## もっとクラス コンストラクタ
 
 ## 例外処理
+
+プログラムの実行中には
+コンパイル時にはわからないエラーが発生することがあります.  
+
+そのような時のために例外処理というシステムが存在し,
+たった一個の単純なエラーのために長い間動作し続ける必要があるプログラム
+（例えばサーバーなど）が終了してしまうのを防ぎます.  
+
+### 基本構文
+
+* try-catch 文
+
+```c++
+try {
+    // 実行したい文. この中で例外が投げられると, 即catch に移行する.
+}
+catch (例外の引数) {
+    // 例外処理
+}
+```
+
+`catch` の部分は関数のように定義します.  
+特に if 文において, `else if`を何個も連ねるように
+オーバーロードっぽく引数の型ごとに何個も`catch`の部分を定義できます.  
+詳しくは例文を参照してください.
+
+なお全ての型の例外をキャッチするために以下のような構文が許されています.
+
+```c++
+catch (...) { // ここの"..."は省略記号ではなく正しくこう書く.
+    // 例外処理
+}
+```
+
+* 例外を投げる
+
+``` c++
+throw(例外引数);
+```
+
+### 例文
+
+```c++
+#include <iostream>
+
+int main()
+{
+    try {
+        throw(0);
+        throw(1);
+    }
+    catch (int e) {
+        std::cout << "例外番号 : " << e << std::endl;
+    }
+}
+```
+
+* 出力
+
+```
+例外番号 : 0
+```
+
+また, 以下の例のように例外は関数を(何個でも)またぐことが可能です.
+
+```c++
+#include <iostream>
+#include <string>
+
+float devide (float a, float b) {
+    if (b == 0.f) {
+        throw(std::string("0で割り算を行おうとしています."));
+    }
+    return a / b;
+}
+
+int main()
+{
+    try {
+        std::cout << " 3 / 4 = ";
+        std::cout << devide(3, 4) << std::endl;
+        std::cout << " 2 / 0 = ";
+        std::cout << devide(2, 0) << std::endl;
+    }
+    catch (std::string e_str) {
+        std::cout << std::endl << "例外発生 : " << e_str << std::endl;
+    }
+}
+```
+
+* 出力
+
+```
+ 3 / 4 = 0.75
+ 2 / 0 = 
+例外発生 : 0で割り算を行おうとしています.
+```
+
+以上のような場合は, 関数`devide`が例外を投げた, と言います.
+
+このように`throw`で投げた例外をcatchで捕まえる
+という書いた通りの動きをします.  
+ですが, `throw`がどこにもキャッチされないと(main関数から例外が投げれると)
+プログラム自体が例外を投げたとして,
+例えば以下のようなエラーが発生して終了します.  
+(ここでは上のdevideを`try`の外側で呼び出した例です.)  
+
+```
+libc++abi.dylib: terminating with uncaught exception of type std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> >
+Abort trap: 6
+```
+
+## もっと例外処理
+
+絶対に例外を投げないプログラム, 関数を例外安全であると言います.  
+よいプログラムでは外から見える関数,
+ひいてはプログラムが例外安全であることが求められます.  
+
+それらをうまく実現する助けとなるテクニックを少しみていきましょう.  
+
+### `noexcept`
+
+もしその関数が絶対に例外を投げないのであれば (例外安全ならば),
+それをコンパイラないし, 読む人間に伝えたいでしょう.  
+そんな時に使うのが`noexcept`キーワードです.  
+引数の後ろに`noexcept`と書くことで,
+その関数が例外を投げないことを保証します.  
+
+* 例文
+
+```c++
+#include <iostream>
+
+// 一般的にfloatの掛け算はオーバーフローもしない.
+float nibai(float a) noexcept {
+    return a * 2.f;
+}
+
+int main() {
+    std::cout << a(2) << std::endl; // 4が出力.
+}
+```
+
+このようにして使えるところでは`noexcept`を使うと良いでしょう.
+
+### `std::exception`
+
+重要な文法である例外処理ですが,
+よくある (というかもはやこれのみ) 使われ方としては,
+例外として組み込みの型で`throw`を呼び出すのではなく,
+あらかじめ, スタンダードライブラリで用意されている例外用の型
+(例えば`std::invalid_argument`や, `std::overflow_error`等)や,
+`std::exception`を継承したクラスを使用することが多いです.
+
+具体的に用意されている例外の方について詳しくは
+[cpprefjp : exception](https://cpprefjp.github.io/reference/exception.html)
+[cpprefjp : exception/exception](https://cpprefjp.github.io/reference/exception/exception.html)
+等を参照してください.
+
+* 例文 (c++11必須)
+
+```c++
+#include <iostream>
+#include <exception>
+
+class ZeroDevision : public std::exception {
+public:
+    ZeroDevision(const std::string& function_name) : func_name(function_name){}
+
+    const char* what() const noexcept {
+        return (func_name + std::string("の中で, 0割が発生しました.")).c_str();
+    }
+
+private:
+    std::tring func_name;
+};
+
+float f(float x) {
+    if (x == 1.f) {
+        throw(ZeroDevision("f"));
+    }
+    return 1.f / (x - 1.f);
+}
+
+float g(float x) {
+    if (x == 2.f) {
+        throw(ZeroDevision("g"));
+    }
+    return 1.f / (x - 2.f);
+}
+
+int main()
+{
+    float x = 2.f;
+    try {
+        f(x);
+        g(x);
+    }
+    catch (std::exception& e) {
+        std::cout << e.what() << std::endl;
+    }
+}
+```
+
+* 出力
+
+```
+gの中で0割が発生しました.
+```
+
+このように`std::exception`を継承することで,
+初めから帰ってくる例外の形を知らなくても,
+例文の37~39行目のように, 一括りでエラーをキャッチし,
+どんな例外が起こったかを知ることができるのです.  
+
+### `std`ライブラリを使う
+
+stdライブラリで用意されているプログラムは例外をできるだけ投げないようになっていたり,
+あらかじめ投げる例外についてのドキュメントがしっかりしています.
+(なのでどの例外をキャッチすればいいのかわかりやすい)
+
+なのでできるだけstdライブラリを使うようにしましょう.  
+
+
+これらをうまく使って, 例外安全なプログラムを書きましょう.
 
 ## 便利なマクロ
 
