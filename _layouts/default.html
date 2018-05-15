@@ -36,6 +36,11 @@
         {% if page.next %}
         <a href="{{ site.baseurl }}/docs/{{ page.next }}.html">次へ</a>
         {% endif %}
+
+        {% if page.date %}
+        <h5>更新日{{ page.date }}</h5>
+        {% endif %}
+
         <h2>目次</h2>
         {% include toc.html html=content h_max=2 %}
         {{ content }}
