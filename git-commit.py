@@ -51,6 +51,10 @@ for mod_file in modified_files:
         continue
     if not mod_file.b_blob.name.endswith('md'):
         continue
+    if mod_file.b_blob.name is not 'README.md':
+        continue
+
+    print(mod_file.b_blob.name)
 
     mod_file_paths.append(mod_file.b_path)
 
