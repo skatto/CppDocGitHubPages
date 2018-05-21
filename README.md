@@ -1,5 +1,7 @@
 # CppDocGitHubPages
 
+[![Build Status](https://travis-ci.org/skatto/CppDocGitHubPages.svg?branch=master)](https://travis-ci.org/skatto/CppDocGitHubPages)
+
 C++導入のためのドキュメントです.  
 サークル用に作ってます.
 
