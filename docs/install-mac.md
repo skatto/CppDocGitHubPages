@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Macでの準備
+date: 2018-05-22
 ---
 
 ## MacOSでC++を使えるようにする
@@ -12,3 +13,4 @@ title: Macでの準備
 ```sh
 $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+

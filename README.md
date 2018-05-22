@@ -9,3 +9,4 @@ C++導入のためのドキュメントです.
 ## License
 
 MIT License.
+
